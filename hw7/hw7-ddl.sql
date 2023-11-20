@@ -222,20 +222,21 @@ CREATE TABLE peopleroles (
 # Person 8 is Designer and Team Lead
 # Person 9 is Developer
 # Person 10 is Developer and Designer
-INSERT INTO peopleroles (people_id, role_id, date_assigned) VALUES
-(1, 2, '2023-01-01'), --  Developer 
-(2, 5, '2023-01-02'), --  Boss 
-(2, 6, '2023-01-03'), --  Mentor 
-(3, 2, '2023-01-04'), -- Developer 
-(3, 4, '2023-01-05'), --  Team Lead
-(4, 3, '2023-01-06'), --  Recruit 
-(5, 3, '2023-01-07'), --Recruit
-(6, 2, '2023-01-08'), --  Developer 
-(6, 1, '2023-01-09'), --  Designer 
-(7, 1, '2023-01-10'), --  Designer 
-(8, 1, '2023-01-11'), --  Designer
-(8, 4, '2023-01-12'), --  Team Lead 
-(9, 2, '2023-01-13'), --Developer 
-(10, 2, '2023-01-14'), -- Developer 
-(10, 1, '2023-01-15'); -- Designer 
+INSERT INTO peopleroles (people_id, role_id) VALUES
+(1, 2), -- Developer
+(2, 5), -- Boss
+(2, 6), -- Mentor
+(3, 2), -- Developer
+(3, 4), -- Team Lead
+(4, 3), -- Recruit
+(5, 3), -- Recruit
+(6, 2), -- Developer
+(6, 1), -- Designer
+(7, 1), -- Designer
+(8, 1), -- Designer
+(8, 4), -- Team Lead
+(9, 2), -- Developer
+(10, 2), -- Developer
+(10, 1); -- Designer
+
 
