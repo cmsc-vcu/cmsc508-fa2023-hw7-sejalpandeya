@@ -222,8 +222,6 @@ CREATE TABLE peopleroles (
 # Person 8 is Designer and Team Lead
 # Person 9 is Developer
 # Person 10 is Developer and Designer
-# Section 11
-# Populate peopleroles
 INSERT INTO peopleroles (people_id, role_id, date_assigned) VALUES
 (1, 2, '2023-01-01'), --  Developer 
 (2, 5, '2023-01-02'), --  Boss 
