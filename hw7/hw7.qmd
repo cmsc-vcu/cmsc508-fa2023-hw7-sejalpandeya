@@ -1,6 +1,6 @@
 ---
 title: Homework 7 - Creating a resume database
-author: (your name goes here!)
+author: Sejal Pandeya
 date: last-modified
 format:
     html:
