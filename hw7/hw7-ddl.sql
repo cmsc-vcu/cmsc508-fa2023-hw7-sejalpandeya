@@ -93,7 +93,12 @@ INSERT INTO people (people_id, people_first_name, people_last_name, people_email
 (3, 'Rita', 'Kumar', 'rita.kumar@email.com', 'https://www.linkedin.com/in/ritakumar', 'https://example.com/headshots/kumar.jpg', 'rita_kumar#789', 'Hello I am looking for a job!', '2023-02-05'),
 (4, 'Carlos', 'Garcia', 'carlos.garcia@email.com', 'https://www.linkedin.com/in/carlosgarcia', 'https://example.com/headshots/garcia.jpg', 'carlos_garcia#101', 'Hi I just moved to this city.', '2023-02-20'),
 (5, 'Li', 'Zhang', 'li.zhang@email.com', 'https://www.linkedin.com/in/lizhang', 'https://example.com/headshots/zhang.jpg', 'li_zhang#123', 'Hi I am majoring in cyber security!', '2023-03-01'),
-(6, 'Emma', 'Smith', 'emma.smith@email.com', 'https://www.linkedin.com/in/emmasmith', 'https://example.com/headshots/smith.jpg', 'emma_smith#321', 'Hello I am trying to find an internship.', '2023-03-15');
+(6, 'Emma', 'Smith', 'emma.smith@email.com', 'https://www.linkedin.com/in/emmasmith', 'https://example.com/headshots/smith.jpg', 'emma_smith#321', 'Hello I am trying to find an internship.', '2023-03-15'),
+(7, 'Michael', 'Brown', 'michael.brown@email.com', 'https://www.linkedin.com/in/michaelbrown', 'https://example.com/headshots/brown.jpg', 'michael_brown#987', 'I am looking to find a job in web development.', '2023-04-01'),
+(8, 'Sara', 'Wilson', 'sara.wilson@email.com', 'https://www.linkedin.com/in/sarawilson', 'https://example.com/headshots/wilson.jpg', 'sara_wilson#654', 'I am tutoring computer science students.', '2023-04-15'),
+(9, 'James', 'Davis', 'james.davis@email.com', 'https://www.linkedin.com/in/jamesdavis', 'https://example.com/headshots/davis.jpg', 'james_davis#321', 'I currently graduted college.', '2023-05-01'),
+(10, 'Maria', 'Martinez', 'maria.martinez@email.com', 'https://www.linkedin.com/in/mariamartinez', 'https://example.com/headshots/martinez.jpg', 'maria_martinez#123', 'I am looking to study abroad.', '2023-05-15');
+
 
 
 
@@ -127,16 +132,33 @@ CREATE TABLE peopleskills (
 # Person 9 has skills 2,5,6;
 # Person 10 has skills 1,4,5;
 # Note that no one has yet acquired skills 7 and 8.
-insert into peopleskills (people_id,skills_id)values
-(1,1),
-(1,3),
-(1,5),
-(2,1),
-(2,4),
-(3,3),
-(3,4),
-(3,5),
-(5,3);
+insert into peopleskills (people_id, skills_id) VALUES
+(1, 1),
+(1, 3),
+(1, 6),
+(2, 3),
+(2, 4),
+(2, 5),
+(3, 1),
+(3, 5),
+(5, 3),
+(5, 6),
+(6, 2),
+(6, 3),
+(6, 4),
+(7, 3),
+(7, 5),
+(7, 6),
+(8, 1),
+(8, 3),
+(8, 5),
+(8, 6),
+(9, 2),
+(9, 5),
+(9, 6),
+(10, 1),
+(10, 4),
+(10, 5);
 
 
 
@@ -200,4 +222,22 @@ CREATE TABLE peopleroles (
 # Person 8 is Designer and Team Lead
 # Person 9 is Developer
 # Person 10 is Developer and Designer
+# Section 11
+# Populate peopleroles
+INSERT INTO peopleroles (people_id, role_id, date_assigned) VALUES
+(1, 2, '2023-01-01'), --  Developer 
+(2, 5, '2023-01-02'), --  Boss 
+(2, 6, '2023-01-03'), --  Mentor 
+(3, 2, '2023-01-04'), -- Developer 
+(3, 4, '2023-01-05'), --  Team Lead
+(4, 3, '2023-01-06'), --  Recruit 
+(5, 3, '2023-01-07'), --Recruit
+(6, 2, '2023-01-08'), --  Developer 
+(6, 1, '2023-01-09'), --  Designer 
+(7, 1, '2023-01-10'), --  Designer 
+(8, 1, '2023-01-11'), --  Designer
+(8, 4, '2023-01-12'), --  Team Lead 
+(9, 2, '2023-01-13'), --Developer 
+(10, 2, '2023-01-14'), -- Developer 
+(10, 1, '2023-01-15'); -- Designer 
 
