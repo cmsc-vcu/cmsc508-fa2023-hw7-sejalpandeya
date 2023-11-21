@@ -17,11 +17,12 @@
 # Drops all tables.  This section should be amended as new tables are added.
 
 SET FOREIGN_KEY_CHECKS=0;
+
 DROP TABLE IF EXISTS people;
 DROP TABLE IF EXISTS skills;
-drop table if exists peopleroles;
-drop table if exists peopleskills;
-drop table if exists roles;
+DROP TABLE IF EXISTS peopleroles;
+DROP TABLE IF EXISTS peopleskills;
+DROP TABLE IF EXISTS roles;
 
 # ... 
 SET FOREIGN_KEY_CHECKS=1;
@@ -58,7 +59,7 @@ INSERT INTO skills (skills_id, skills_name, skills_description, skills_tag) VALU
 (6, 'Baseball', 'Throw and catch!', 'Skill 6'),
 (7, 'Drawing', 'draw away', 'Skill 7'),
 (8, 'Cooking', 'Learning recipes', 'Skill 8');
-
+SELECT * FROM skills
 
 
 
@@ -98,6 +99,7 @@ INSERT INTO people (people_id, people_first_name, people_last_name, people_email
 (8, 'Sara', 'Wilson', 'sara.wilson@email.com', 'https://www.linkedin.com/in/sarawilson', 'https://example.com/headshots/wilson.jpg', 'sara_wilson#654', 'I am tutoring computer science students.', '2023-04-15'),
 (9, 'James', 'Davis', 'james.davis@email.com', 'https://www.linkedin.com/in/jamesdavis', 'https://example.com/headshots/davis.jpg', 'james_davis#321', 'I currently graduted college.', '2023-05-01'),
 (10, 'Maria', 'Martinez', 'maria.martinez@email.com', 'https://www.linkedin.com/in/mariamartinez', 'https://example.com/headshots/martinez.jpg', 'maria_martinez#123', 'I am looking to study abroad.', '2023-05-15');
+SELECT * FROM people
 
 
 
