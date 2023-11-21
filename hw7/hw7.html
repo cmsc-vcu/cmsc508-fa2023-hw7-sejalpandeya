@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Sejal Pandeya">
-<meta name="dcterms.date" content="2023-11-12">
+<meta name="dcterms.date" content="2023-11-20">
 
 <title>Homework 7 - Creating a resume database</title>
 <style>
@@ -3363,7 +3363,7 @@ z-index: 1000;
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">November 12, 2023</p>
+      <p class="date">November 20, 2023</p>
     </div>
   </div>
   
@@ -3373,32 +3373,16 @@ z-index: 1000;
 
 </header>
 
-<p>(include a brief description of what is in this document)</p>
+<p>In this document is a database which uses a sql dagabase. The document has python code based off connecting the database and has a crowfoot diagram to show the structure of the database.</p>
 <p>(Please clean up any comments that I included. This is a scaffold document.)</p>
 <p>GITHUB URL: &lt;your URL goes here!&gt;</p>
-<div class="cell" data-execution_count="2">
-<div class="cell-output cell-output-stdout">
-<pre><code>Missing CMSC508_USER in .env file
-Missing CMSC508_PASSWORD in .env file
-Missing CMSC508_HOST in .env file
-Missing HW7_DB_NAME in .env file</code></pre>
-</div>
-</div>
-<div class="cell" data-execution_count="4">
-<div class="cell-output cell-output-stdout">
-<pre><code>Database/SQL Error:
-(pymysql.err.OperationalError) (2003, &quot;Can&#39;t connect to MySQL server on &#39;None&#39; ([Errno 8] nodename nor servname provided, or not known)&quot;)
-(Background on this error at: https://sqlalche.me/e/20/e3q8)
-</code></pre>
-</div>
-</div>
 <section id="overview-and-description" class="level2">
 <h2 class="anchored" data-anchor-id="overview-and-description">Overview and description</h2>
-<p>(briefly describe the project and the database)</p>
+<p>This project uses python coding for the database by sql. It connects the databse, queries and has manipulation of data based off python. There are entities and attributes such as the entities being customer,delivery adress and order. The project also has examples based off people,roles,and skills.</p>
 </section>
 <section id="crows-foot-diagram" class="level2">
 <h2 class="anchored" data-anchor-id="crows-foot-diagram">Crows-foot diagram</h2>
-<p>(add a description of the diagram and what the reader is seeing.)</p>
+<p>The diagram is a crow food er diagram where there are customer,order, and delivery entity with the attirubutes being first and last names.</p>
 <div class="cell">
 <div class="cell-output-display">
 <div>
@@ -3428,14 +3412,6 @@ Missing HW7_DB_NAME in .env file</code></pre>
 <p>The <em>people</em> table contains elements that describe …</p>
 <p>Below is a list of data in the <em>people</em> table.</p>
 <div class="cell" data-execution_count="5">
-<div class="cell-output cell-output-stdout">
-<pre><code>An error occurred:
-
-(pymysql.err.OperationalError) (2003, &quot;Can&#39;t connect to MySQL server on &#39;None&#39; ([Errno 8] nodename nor servname provided, or not known)&quot;)
-(Background on this error at: https://sqlalche.me/e/20/e3q8)
-
-Ignoring and moving on.</code></pre>
-</div>
 <div class="cell-output cell-output-display" data-execution_count="5">
 <div>
 
@@ -3444,6 +3420,15 @@ Ignoring and moving on.</code></pre>
 <thead>
 <tr class="header">
 <th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">people_id</th>
+<th data-quarto-table-cell-role="th">people_first_name</th>
+<th data-quarto-table-cell-role="th">people_last_name</th>
+<th data-quarto-table-cell-role="th">people_email</th>
+<th data-quarto-table-cell-role="th">people_linkedin_url</th>
+<th data-quarto-table-cell-role="th">people_headshot_url</th>
+<th data-quarto-table-cell-role="th">people_discord_handle</th>
+<th data-quarto-table-cell-role="th">people_brief_bio</th>
+<th data-quarto-table-cell-role="th">people_date_joined</th>
 </tr>
 </thead>
 <tbody>
@@ -3458,11 +3443,74 @@ Ignoring and moving on.</code></pre>
 <h3 class="anchored" data-anchor-id="skills-table">Skills table</h3>
 <p>The <em>skills</em> table contains elements that describe …</p>
 <p>Below is a list of data in the <em>skills</em> table.</p>
+<div class="cell" data-execution_count="6">
+<div class="cell-output cell-output-display" data-execution_count="6">
+<div>
+
+
+<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">people_id</th>
+<th data-quarto-table-cell-role="th">people_first_name</th>
+<th data-quarto-table-cell-role="th">people_last_name</th>
+<th data-quarto-table-cell-role="th">people_email</th>
+<th data-quarto-table-cell-role="th">people_linkedin_url</th>
+<th data-quarto-table-cell-role="th">people_headshot_url</th>
+<th data-quarto-table-cell-role="th">people_discord_handle</th>
+<th data-quarto-table-cell-role="th">people_brief_bio</th>
+<th data-quarto-table-cell-role="th">people_date_joined</th>
+</tr>
+</thead>
+<tbody>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
 </section>
 <section id="roles-table" class="level3">
 <h3 class="anchored" data-anchor-id="roles-table">Roles table</h3>
 <p>The <em>roles</em> table contains elements that describe …</p>
 <p>Below is a list of data in the <em>roles</em> table.</p>
+<div class="cell" data-execution_count="7">
+<div class="cell-output cell-output-stdout">
+<pre><code>An error occurred:
+
+(pymysql.err.ProgrammingError) (1146, &quot;Table &#39;23FA_users_pandeyas.roles&#39; doesn&#39;t exist&quot;)
+[SQL: select * from roles;]
+(Background on this error at: https://sqlalche.me/e/20/f405)
+
+Ignoring and moving on.</code></pre>
+</div>
+<div class="cell-output cell-output-display" data-execution_count="7">
+<div>
+
+
+<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">people_id</th>
+<th data-quarto-table-cell-role="th">people_first_name</th>
+<th data-quarto-table-cell-role="th">people_last_name</th>
+<th data-quarto-table-cell-role="th">people_email</th>
+<th data-quarto-table-cell-role="th">people_linkedin_url</th>
+<th data-quarto-table-cell-role="th">people_headshot_url</th>
+<th data-quarto-table-cell-role="th">people_discord_handle</th>
+<th data-quarto-table-cell-role="th">people_brief_bio</th>
+<th data-quarto-table-cell-role="th">people_date_joined</th>
+</tr>
+</thead>
+<tbody>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
 </section>
 </section>
 <section id="sample-queries" class="level2">
@@ -3473,20 +3521,12 @@ Ignoring and moving on.</code></pre>
 <h1>List skill names, tags, and descriptions ordered by name</h1>
 <p>(here a sample query)</p>
 <div class="cell" data-execution_count="8">
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>sql <span class="op">=</span> <span class="ss">f&quot;&quot;&quot;</span></span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="ss">select * from people</span></span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="ss">&quot;&quot;&quot;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>sql <span class="op">=</span> <span class="ss">f&quot;&quot;&quot;</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="ss">select * from people</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="ss">&quot;&quot;&quot;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>(and here is a sample result from the query)</p>
 <div class="cell" data-execution_count="9">
-<div class="cell-output cell-output-stdout">
-<pre><code>An error occurred:
-
-(pymysql.err.OperationalError) (2003, &quot;Can&#39;t connect to MySQL server on &#39;None&#39; ([Errno 8] nodename nor servname provided, or not known)&quot;)
-(Background on this error at: https://sqlalche.me/e/20/e3q8)
-
-Ignoring and moving on.</code></pre>
-</div>
 <div class="cell-output cell-output-display" data-execution_count="9">
 <div>
 
@@ -3495,6 +3535,15 @@ Ignoring and moving on.</code></pre>
 <thead>
 <tr class="header">
 <th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">people_id</th>
+<th data-quarto-table-cell-role="th">people_first_name</th>
+<th data-quarto-table-cell-role="th">people_last_name</th>
+<th data-quarto-table-cell-role="th">people_email</th>
+<th data-quarto-table-cell-role="th">people_linkedin_url</th>
+<th data-quarto-table-cell-role="th">people_headshot_url</th>
+<th data-quarto-table-cell-role="th">people_discord_handle</th>
+<th data-quarto-table-cell-role="th">people_brief_bio</th>
+<th data-quarto-table-cell-role="th">people_date_joined</th>
 </tr>
 </thead>
 <tbody>
