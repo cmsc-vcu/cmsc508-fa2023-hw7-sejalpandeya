@@ -3375,28 +3375,61 @@ z-index: 1000;
 
 <p>In this document is a database which uses a sql dagabase. The document has python code based off connecting the database and has a crowfoot diagram to show the structure of the database.</p>
 <p>(Please clean up any comments that I included. This is a scaffold document.)</p>
-<p>GITHUB URL: &lt;your URL goes here!&gt;</p>
+<p>GITHUB URL: https://github.com/cmsc-vcu/cmsc508-fa2023-hw7-sejalpandeya.git</p>
 <section id="overview-and-description" class="level2">
 <h2 class="anchored" data-anchor-id="overview-and-description">Overview and description</h2>
 <p>This project uses python coding for the database by sql. It connects the databse, queries and has manipulation of data based off python. There are entities and attributes such as the entities being customer,delivery adress and order. The project also has examples based off people,roles,and skills.</p>
 </section>
 <section id="crows-foot-diagram" class="level2">
 <h2 class="anchored" data-anchor-id="crows-foot-diagram">Crows-foot diagram</h2>
-<p>The diagram is a crow food er diagram where there are customer,order, and delivery entity with the attirubutes being first and last names.</p>
+<p>The diagram is a crow food er diagram about a person and their roles/ skills. Within the entities there are attributes which will describe the person.</p>
 <div class="cell">
 <div class="cell-output-display">
 <div>
 <div>
 <pre class="mermaid mermaid-js">erDiagram
-    CUSTOMER ||--o{ ORDER : places
-    CUSTOMER }|..|{ DELIVERY-ADDRESS : uses
-    CUSTOMER{
+    Skills ||--o{ peopleskills : has
+    people ||--o{ peopleskills : has
+    peopleskills ||--o{ skills : has
+    roles ||--o{ people_roles : has
+    people_roles ||--o{ roles : has
+    skills {
         int id
-        string first_name
-        string last_name
+        VARCHAR name
+        VARCHAR description
+        VARCHAR tag
+        VARCHAR url
+        int time_commitment
     }
-    DELIVERY-ADDRESS {
+    people {
+        int id  
+        VARCHAR first_name 
+        VARCHAR last_name 
+        VARCHAR email 
+        VARCHAR linkedin_url 
+        VARCHAR headshot_url 
+        VARCHAR discord_handle 
+        VARCHAR brief_bio 
+        DATE date_joined 
+    }
+    peopleskills {
         int id
+        int skills_id
+        int people_id
+        DATE date_acquired
+    }
+
+    roles {
+        int id
+        VARCHAR name
+        int sort_priority
+    }
+
+    people_roles {
+        int id
+        int people_id
+        int role_id
+        DATE date_role_acquired 
     }
 </pre>
 </div>
@@ -3409,7 +3442,7 @@ z-index: 1000;
 <p>For the people, skills, and roles tables, provide a description of each table and it’s contents. Then provide a listing of the entire table.</p>
 <section id="people-table" class="level3">
 <h3 class="anchored" data-anchor-id="people-table">People table</h3>
-<p>The <em>people</em> table contains elements that describe …</p>
+<p>The <em>people</em> table contains elements that describe information about the person such as their name and about their profile.</p>
 <p>Below is a list of data in the <em>people</em> table.</p>
 <div class="cell" data-execution_count="5">
 <div class="cell-output cell-output-display" data-execution_count="5">
@@ -3432,6 +3465,126 @@ z-index: 1000;
 </tr>
 </thead>
 <tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">0</td>
+<td>1</td>
+<td>Sejal</td>
+<td>Pandeya</td>
+<td>pandeya@gmail.com</td>
+<td>https://www.linkedin.com/in/pandeya</td>
+<td>https://example.com/headshots/pandeya.jpg</td>
+<td>pandeya#234</td>
+<td>Hi, it&#39;s nice to meet you</td>
+<td>2023-01-04</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">1</td>
+<td>2</td>
+<td>Alex</td>
+<td>Johnson</td>
+<td>johnson.alex@email.com</td>
+<td>https://www.linkedin.com/in/alexjohnson</td>
+<td>https://example.com/headshots/johnson.jpg</td>
+<td>johnson_alex#456</td>
+<td>Hello I am new here!</td>
+<td>2023-01-10</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2</td>
+<td>3</td>
+<td>Rita</td>
+<td>Kumar</td>
+<td>rita.kumar@email.com</td>
+<td>https://www.linkedin.com/in/ritakumar</td>
+<td>https://example.com/headshots/kumar.jpg</td>
+<td>rita_kumar#789</td>
+<td>Hello I am looking for a job!</td>
+<td>2023-02-05</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">3</td>
+<td>4</td>
+<td>Carlos</td>
+<td>Garcia</td>
+<td>carlos.garcia@email.com</td>
+<td>https://www.linkedin.com/in/carlosgarcia</td>
+<td>https://example.com/headshots/garcia.jpg</td>
+<td>carlos_garcia#101</td>
+<td>Hi I just moved to this city.</td>
+<td>2023-02-20</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">4</td>
+<td>5</td>
+<td>Li</td>
+<td>Zhang</td>
+<td>li.zhang@email.com</td>
+<td>https://www.linkedin.com/in/lizhang</td>
+<td>https://example.com/headshots/zhang.jpg</td>
+<td>li_zhang#123</td>
+<td>Hi I am majoring in cyber security!</td>
+<td>2023-03-01</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">5</td>
+<td>6</td>
+<td>Emma</td>
+<td>Smith</td>
+<td>emma.smith@email.com</td>
+<td>https://www.linkedin.com/in/emmasmith</td>
+<td>https://example.com/headshots/smith.jpg</td>
+<td>emma_smith#321</td>
+<td>Hello I am trying to find an internship.</td>
+<td>2023-03-15</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">6</td>
+<td>7</td>
+<td>Michael</td>
+<td>Brown</td>
+<td>michael.brown@email.com</td>
+<td>https://www.linkedin.com/in/michaelbrown</td>
+<td>https://example.com/headshots/brown.jpg</td>
+<td>michael_brown#987</td>
+<td>I am looking to find a job in web development.</td>
+<td>2023-04-01</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">7</td>
+<td>8</td>
+<td>Sara</td>
+<td>Wilson</td>
+<td>sara.wilson@email.com</td>
+<td>https://www.linkedin.com/in/sarawilson</td>
+<td>https://example.com/headshots/wilson.jpg</td>
+<td>sara_wilson#654</td>
+<td>I am tutoring computer science students.</td>
+<td>2023-04-15</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">8</td>
+<td>9</td>
+<td>James</td>
+<td>Davis</td>
+<td>james.davis@email.com</td>
+<td>https://www.linkedin.com/in/jamesdavis</td>
+<td>https://example.com/headshots/davis.jpg</td>
+<td>james_davis#321</td>
+<td>I currently graduted college.</td>
+<td>2023-05-01</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">9</td>
+<td>10</td>
+<td>Maria</td>
+<td>Martinez</td>
+<td>maria.martinez@email.com</td>
+<td>https://www.linkedin.com/in/mariamartinez</td>
+<td>https://example.com/headshots/martinez.jpg</td>
+<td>maria_martinez#123</td>
+<td>I am looking to study abroad.</td>
+<td>2023-05-15</td>
+</tr>
 </tbody>
 </table>
 
@@ -3441,7 +3594,7 @@ z-index: 1000;
 </section>
 <section id="skills-table" class="level3">
 <h3 class="anchored" data-anchor-id="skills-table">Skills table</h3>
-<p>The <em>skills</em> table contains elements that describe …</p>
+<p>The <em>skills</em> table contains elements that describe a list of skills the person has and the description.</p>
 <p>Below is a list of data in the <em>skills</em> table.</p>
 <div class="cell" data-execution_count="6">
 <div class="cell-output cell-output-display" data-execution_count="6">
@@ -3452,18 +3605,87 @@ z-index: 1000;
 <thead>
 <tr class="header">
 <th data-quarto-table-cell-role="th"></th>
-<th data-quarto-table-cell-role="th">people_id</th>
-<th data-quarto-table-cell-role="th">people_first_name</th>
-<th data-quarto-table-cell-role="th">people_last_name</th>
-<th data-quarto-table-cell-role="th">people_email</th>
-<th data-quarto-table-cell-role="th">people_linkedin_url</th>
-<th data-quarto-table-cell-role="th">people_headshot_url</th>
-<th data-quarto-table-cell-role="th">people_discord_handle</th>
-<th data-quarto-table-cell-role="th">people_brief_bio</th>
-<th data-quarto-table-cell-role="th">people_date_joined</th>
+<th data-quarto-table-cell-role="th">skills_id</th>
+<th data-quarto-table-cell-role="th">skills_name</th>
+<th data-quarto-table-cell-role="th">skills_description</th>
+<th data-quarto-table-cell-role="th">skills_tag</th>
+<th data-quarto-table-cell-role="th">skills_url</th>
+<th data-quarto-table-cell-role="th">skills_time_commitment</th>
 </tr>
 </thead>
 <tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">0</td>
+<td>1</td>
+<td>Kick boxing</td>
+<td>visualize this!</td>
+<td>Skill 1</td>
+<td>None</td>
+<td>None</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">1</td>
+<td>2</td>
+<td>Python coding</td>
+<td>writing python programs</td>
+<td>Skill 2</td>
+<td>None</td>
+<td>None</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2</td>
+<td>3</td>
+<td>Swimming</td>
+<td>Learn how to swim</td>
+<td>Skill 3</td>
+<td>None</td>
+<td>None</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">3</td>
+<td>4</td>
+<td>Track and field</td>
+<td>Run!</td>
+<td>Skill 4</td>
+<td>None</td>
+<td>None</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">4</td>
+<td>5</td>
+<td>Basketball</td>
+<td>shooting hoops</td>
+<td>Skill 5</td>
+<td>None</td>
+<td>None</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">5</td>
+<td>6</td>
+<td>Baseball</td>
+<td>Throw and catch!</td>
+<td>Skill 6</td>
+<td>None</td>
+<td>None</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">6</td>
+<td>7</td>
+<td>Drawing</td>
+<td>draw away</td>
+<td>Skill 7</td>
+<td>None</td>
+<td>None</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">7</td>
+<td>8</td>
+<td>Cooking</td>
+<td>Learning recipes</td>
+<td>Skill 8</td>
+<td>None</td>
+<td>None</td>
+</tr>
 </tbody>
 </table>
 
@@ -3473,18 +3695,9 @@ z-index: 1000;
 </section>
 <section id="roles-table" class="level3">
 <h3 class="anchored" data-anchor-id="roles-table">Roles table</h3>
-<p>The <em>roles</em> table contains elements that describe …</p>
+<p>The <em>roles</em> table contains elements that describe the roles names of an id.</p>
 <p>Below is a list of data in the <em>roles</em> table.</p>
 <div class="cell" data-execution_count="7">
-<div class="cell-output cell-output-stdout">
-<pre><code>An error occurred:
-
-(pymysql.err.ProgrammingError) (1146, &quot;Table &#39;23FA_users_pandeyas.roles&#39; doesn&#39;t exist&quot;)
-[SQL: select * from roles;]
-(Background on this error at: https://sqlalche.me/e/20/f405)
-
-Ignoring and moving on.</code></pre>
-</div>
 <div class="cell-output cell-output-display" data-execution_count="7">
 <div>
 
@@ -3493,18 +3706,48 @@ Ignoring and moving on.</code></pre>
 <thead>
 <tr class="header">
 <th data-quarto-table-cell-role="th"></th>
-<th data-quarto-table-cell-role="th">people_id</th>
-<th data-quarto-table-cell-role="th">people_first_name</th>
-<th data-quarto-table-cell-role="th">people_last_name</th>
-<th data-quarto-table-cell-role="th">people_email</th>
-<th data-quarto-table-cell-role="th">people_linkedin_url</th>
-<th data-quarto-table-cell-role="th">people_headshot_url</th>
-<th data-quarto-table-cell-role="th">people_discord_handle</th>
-<th data-quarto-table-cell-role="th">people_brief_bio</th>
-<th data-quarto-table-cell-role="th">people_date_joined</th>
+<th data-quarto-table-cell-role="th">id</th>
+<th data-quarto-table-cell-role="th">name</th>
+<th data-quarto-table-cell-role="th">sort_priority</th>
 </tr>
 </thead>
 <tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">0</td>
+<td>1</td>
+<td>Designer</td>
+<td>10</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">1</td>
+<td>2</td>
+<td>Developer</td>
+<td>20</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2</td>
+<td>3</td>
+<td>Recruit</td>
+<td>30</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">3</td>
+<td>4</td>
+<td>Team Lead</td>
+<td>40</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">4</td>
+<td>5</td>
+<td>Boss</td>
+<td>50</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">5</td>
+<td>6</td>
+<td>Mentor</td>
+<td>60</td>
+</tr>
 </tbody>
 </table>
 
@@ -3521,9 +3764,9 @@ Ignoring and moving on.</code></pre>
 <h1>List skill names, tags, and descriptions ordered by name</h1>
 <p>(here a sample query)</p>
 <div class="cell" data-execution_count="8">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>sql <span class="op">=</span> <span class="ss">f&quot;&quot;&quot;</span></span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="ss">select * from people</span></span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="ss">&quot;&quot;&quot;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>sql <span class="op">=</span> <span class="ss">f&quot;&quot;&quot;</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="ss">select * from people</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="ss">&quot;&quot;&quot;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>(and here is a sample result from the query)</p>
 <div class="cell" data-execution_count="9">
@@ -3547,6 +3790,126 @@ Ignoring and moving on.</code></pre>
 </tr>
 </thead>
 <tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">0</td>
+<td>1</td>
+<td>Sejal</td>
+<td>Pandeya</td>
+<td>pandeya@gmail.com</td>
+<td>https://www.linkedin.com/in/pandeya</td>
+<td>https://example.com/headshots/pandeya.jpg</td>
+<td>pandeya#234</td>
+<td>Hi, it&#39;s nice to meet you</td>
+<td>2023-01-04</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">1</td>
+<td>2</td>
+<td>Alex</td>
+<td>Johnson</td>
+<td>johnson.alex@email.com</td>
+<td>https://www.linkedin.com/in/alexjohnson</td>
+<td>https://example.com/headshots/johnson.jpg</td>
+<td>johnson_alex#456</td>
+<td>Hello I am new here!</td>
+<td>2023-01-10</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2</td>
+<td>3</td>
+<td>Rita</td>
+<td>Kumar</td>
+<td>rita.kumar@email.com</td>
+<td>https://www.linkedin.com/in/ritakumar</td>
+<td>https://example.com/headshots/kumar.jpg</td>
+<td>rita_kumar#789</td>
+<td>Hello I am looking for a job!</td>
+<td>2023-02-05</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">3</td>
+<td>4</td>
+<td>Carlos</td>
+<td>Garcia</td>
+<td>carlos.garcia@email.com</td>
+<td>https://www.linkedin.com/in/carlosgarcia</td>
+<td>https://example.com/headshots/garcia.jpg</td>
+<td>carlos_garcia#101</td>
+<td>Hi I just moved to this city.</td>
+<td>2023-02-20</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">4</td>
+<td>5</td>
+<td>Li</td>
+<td>Zhang</td>
+<td>li.zhang@email.com</td>
+<td>https://www.linkedin.com/in/lizhang</td>
+<td>https://example.com/headshots/zhang.jpg</td>
+<td>li_zhang#123</td>
+<td>Hi I am majoring in cyber security!</td>
+<td>2023-03-01</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">5</td>
+<td>6</td>
+<td>Emma</td>
+<td>Smith</td>
+<td>emma.smith@email.com</td>
+<td>https://www.linkedin.com/in/emmasmith</td>
+<td>https://example.com/headshots/smith.jpg</td>
+<td>emma_smith#321</td>
+<td>Hello I am trying to find an internship.</td>
+<td>2023-03-15</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">6</td>
+<td>7</td>
+<td>Michael</td>
+<td>Brown</td>
+<td>michael.brown@email.com</td>
+<td>https://www.linkedin.com/in/michaelbrown</td>
+<td>https://example.com/headshots/brown.jpg</td>
+<td>michael_brown#987</td>
+<td>I am looking to find a job in web development.</td>
+<td>2023-04-01</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">7</td>
+<td>8</td>
+<td>Sara</td>
+<td>Wilson</td>
+<td>sara.wilson@email.com</td>
+<td>https://www.linkedin.com/in/sarawilson</td>
+<td>https://example.com/headshots/wilson.jpg</td>
+<td>sara_wilson#654</td>
+<td>I am tutoring computer science students.</td>
+<td>2023-04-15</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">8</td>
+<td>9</td>
+<td>James</td>
+<td>Davis</td>
+<td>james.davis@email.com</td>
+<td>https://www.linkedin.com/in/jamesdavis</td>
+<td>https://example.com/headshots/davis.jpg</td>
+<td>james_davis#321</td>
+<td>I currently graduted college.</td>
+<td>2023-05-01</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">9</td>
+<td>10</td>
+<td>Maria</td>
+<td>Martinez</td>
+<td>maria.martinez@email.com</td>
+<td>https://www.linkedin.com/in/mariamartinez</td>
+<td>https://example.com/headshots/martinez.jpg</td>
+<td>maria_martinez#123</td>
+<td>I am looking to study abroad.</td>
+<td>2023-05-15</td>
+</tr>
 </tbody>
 </table>
 
@@ -3579,7 +3942,7 @@ Ignoring and moving on.</code></pre>
 </section>
 <section id="reflection" class="level2">
 <h2 class="anchored" data-anchor-id="reflection">Reflection</h2>
-<p>(Write a paragraph expressing your thoughts, feelings, and insights about your experience with this assignment. Pause and breath before writing - I’m trying to encourage critical thinking and self-awareness while allowing you to explore the connections between theory and practice. And yes, delete this paragraph.)</p>
+<p>I thought the hardest part about this project was getting the list in the last part of the project because when I was trying to type my code it kept on printing the code into quarto instead of showing the list. I believe the sql part was easy because I followed the lectures and tried the others that were not done fully in the lectures. Overall I believe this assignment went well.</p>
 </section>
 </section>
 

@@ -13,7 +13,7 @@ In this document is a database which uses a sql dagabase. The document has pytho
 
 (Please clean up any comments that I included.  This is a scaffold document.)
 
-GITHUB URL:  <your URL goes here!>
+GITHUB URL: https://github.com/cmsc-vcu/cmsc508-fa2023-hw7-sejalpandeya.git
 
 ```{python}
 #| eval: true
@@ -95,22 +95,58 @@ This project uses python coding for the database by sql. It connects the databse
 
 ## Crows-foot diagram
 
-The diagram is a crow food er diagram where there are customer,order, and delivery entity with the attirubutes being first and last names.
+The diagram is a crow food er diagram about a person and their roles/ skills. Within the entities there are attributes which will describe the person.
 
 ```{mermaid}
 %%| echo: false
 erDiagram
-    CUSTOMER ||--o{ ORDER : places
-    CUSTOMER }|..|{ DELIVERY-ADDRESS : uses
-    CUSTOMER{
+    Skills ||--o{ peopleskills : has
+    people ||--o{ peopleskills : has
+    peopleskills ||--o{ skills : has
+    roles ||--o{ people_roles : has
+    people_roles ||--o{ roles : has
+    skills {
         int id
-        string first_name
-        string last_name
+        VARCHAR name
+        VARCHAR description
+        VARCHAR tag
+        VARCHAR url
+        int time_commitment
     }
-    DELIVERY-ADDRESS {
+    people {
+        int id  
+        VARCHAR first_name 
+        VARCHAR last_name 
+        VARCHAR email 
+        VARCHAR linkedin_url 
+        VARCHAR headshot_url 
+        VARCHAR discord_handle 
+        VARCHAR brief_bio 
+        DATE date_joined 
+    }
+    peopleskills {
         int id
+        int skills_id
+        int people_id
+        DATE date_acquired
+    }
+
+    roles {
+        int id
+        VARCHAR name
+        int sort_priority
+    }
+
+    people_roles {
+        int id
+        int people_id
+        int role_id
+        DATE date_role_acquired 
     }
 ```
+
+
+
 
 ## Examples of data in the database
 
@@ -118,7 +154,7 @@ For the people, skills, and roles tables, provide a description of each table an
 
 ### People table
 
-The *people* table contains elements that describe ... 
+The *people* table contains elements that describe information about the person such as their name and about their profile.
 
 Below is a list of data in the *people* table.
 
@@ -142,49 +178,50 @@ df
 
 ### Skills table
 
-The *skills* table contains elements that describe ... 
+The *skills* table contains elements that describe a list of skills the person has and the description.
 
 Below is a list of data in the *skills* table.
 
 ```{python}
 #| echo: false
 #| eval: true
-
+sql = f"""
+select * from skills;
+"""
 ## Add code to list roles table here
-import pandas as pd
-sql_skills = "select * from skills;"
+
 try:
-    df_skills=pd.read_sql(sql_skills,cnx)
-    df_skills
+    df = pd.read_sql(sql,cnx)
+    df
 except Exception as e:
-        message= str(e)
-        print(f"An error occurred:\n\n{message}\n\nIgnoring and moving on.")
-        df = pd.DataFrame()
+    message = str(e)
+    print(f"An error occurred:\n\n{message}\n\nIgnoring and moving on.")
+    df = pd.DataFrame()
 df
 ```
 
 ### Roles table
 
-The *roles* table contains elements that describe ... 
+The *roles* table contains elements that describe the roles names of an id.
 
 Below is a list of data in the *roles* table.
 
 ```{python}
 #| echo: false
 #| eval: true
-
+sql = f"""
+select * from roles;
+"""
 ## Add code to list roles table here
-import pandas as pd
-sql_roles = "select * from roles;"
+
 try:
-    df_roles=pd.read_sql(sql_roles,cnx)
-    df_roles
+    df = pd.read_sql(sql,cnx)
+    df
 except Exception as e:
-        message= str(e)
-        print(f"An error occurred:\n\n{message}\n\nIgnoring and moving on.")
-        df_roles = pd.DataFrame()
+    message = str(e)
+    print(f"An error occurred:\n\n{message}\n\nIgnoring and moving on.")
+    df = pd.DataFrame()
 df
-     
 ```
 
 
@@ -209,7 +246,7 @@ select * from people
 #| echo: false
 #| eval: true
 try:
-    df = pd.read_sql(sql,cnx)
+    df = pd.read_sql(sql,cnx) 
     df
 except Exception as e:
     message = str(e)
@@ -246,5 +283,6 @@ df
 
 ## Reflection
 
-(Write a paragraph expressing your thoughts, feelings, and insights about your experience with this assignment.  Pause and breath before writing - I'm trying to encourage critical thinking and self-awareness while allowing you to explore the connections between theory and practice. And yes, delete this paragraph.)
+
+I thought the hardest part about this project was getting the list in the last part of the project because when I was trying to type my code it kept on printing the code into quarto instead of showing the list. I believe the sql part was easy because I followed the lectures and tried the others that were not done fully in the lectures. Overall I believe this assignment went well.
 
