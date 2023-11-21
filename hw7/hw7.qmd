@@ -258,8 +258,6 @@ df
 
 
 ### List people names and email addresses ordered by last_name
-
-
 ### List skill names of Person 1
 
 
